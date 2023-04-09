@@ -68,7 +68,7 @@
                                         <v-col cols="8" md="6">
                                             <v-label class="label pb-2 font-weight-bold">Country</v-label>
                                             <v-combobox v-model="values" :items="country"
-                                                label="Please Select"></v-combobox>
+                                                label="Please Select" clearable></v-combobox>
                                         </v-col>
                                         <v-col cols="4" md="4">
                                             <v-label class="label pb-2 font-weight-bold">Phone</v-label>
