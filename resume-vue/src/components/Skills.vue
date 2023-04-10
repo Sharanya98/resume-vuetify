@@ -20,11 +20,6 @@
                                             <v-combobox v-model="selectedLang" :items="langitems" multiple
                                                 chips  variant="outlined"></v-combobox>
                                         </v-col>
-
-
-                                    </v-row>
-                                    <v-row class="mb-n10">
-
                                         <v-col cols="6" md="6">
                                             <v-label class="label pb-2 font-weight-bold">Health status</v-label>
                                             <v-radio-group v-model="health" inline>
@@ -34,21 +29,23 @@
                                         </v-col>
 
 
-
-
-
                                     </v-row>
+                                   
 
-                                    <v-row class="mb-n10">
+                                    <v-row class="mb-n10 pr-24">
                                         <v-col cols="6" md="4">
                                             <v-label class="label pb-2 font-weight-bold">Skills/Hobbies</v-label>
-                                            <v-combobox class="" v-model="selectedskill" :items="skillitems"
+                                            <v-combobox class="" v-model="skillName" :items="skillitems"
                                                 chips  variant="outlined"></v-combobox>
                                         </v-col>
                                         <v-col cols="6" md="4">
                                             <v-label class="label pb-2 font-weight-bold">Years</v-label>
-                                            <v-range-slider v-model="value" strict :max="5" :min="0" thumb-label="always"
+                                            <v-range-slider v-model="totalYear" strict :max="5" :min="0" thumb-label="always"
                                                 :step="1"></v-range-slider>
+                                        </v-col>
+                                        <v-col cols="6" md="4">
+                                            <v-label class="label pb-2 font-weight-bold block">Add more</v-label>
+                                            <v-btn size="large" color="#5865f2" variant="text" icon="mdi-plus"  @click=""></v-btn>
                                         </v-col>
 
 
@@ -57,39 +54,22 @@
                                     <v-row class="mb-n10">
                                         <v-col cols="4" md="4">
                                             <v-label class="label pb-2 font-weight-bold">Certification</v-label>
-                                            <v-combobox v-model="selectedlicence" :items="licenceitems" chips  variant="outlined"></v-combobox>
+                                            <v-combobox v-model="licenseName" :items="licenceitems" chips  variant="outlined"></v-combobox>
                                         </v-col>
                                         <v-col cols="4" md="4">
-                                            <v-label class="label pb-2 font-weight-bold">Start Date</v-label>
-                                            <v-text-field v-model="startdate" variant="outlined" clearable label="YYYY/MM"
+                                            <v-label class="label pb-2 font-weight-bold">Date Year</v-label>
+                                            <v-text-field v-model="licenseDateYear" variant="outlined" clearable label="YYYY"
                                                 required></v-text-field>
                                         </v-col>
                                         <v-col cols="4" md="4">
-                                            <v-label class="label pb-2 font-weight-bold">End Date</v-label>
-                                            <v-text-field v-model="enddate" variant="outlined" clearable label="YYYY/MM"
+                                            <v-label class="label pb-2 font-weight-bold">Date Month</v-label>
+                                            <v-text-field v-model="licenseDateMonth" variant="outlined" clearable label="MM"
                                                 required></v-text-field>
                                         </v-col>
 
 
                                     </v-row>
-                                    <v-row class="mb-n10">
-                                        <v-col cols="12" md="12">
-                                            <v-label class="label pb-2 font-weight-bold">Your Motive</v-label>
-                                            <v-textarea clearable clear-icon="mdi-close-circle" label="Motive"
-                                                model-value="Please Enter here"  variant="outlined" rows="3"></v-textarea>
-                                        </v-col>                                     
-
-
-                                    </v-row>
-                                    <v-row class="mb-n10">
-                                        <v-col cols="12" md="12">
-                                            <v-label class="label pb-2 font-weight-bold">Self PR</v-label>
-                                            <v-textarea clearable clear-icon="mdi-close-circle" label="PR"
-                                                model-value="Please Enter here"  variant="outlined" rows="3"></v-textarea>
-                                        </v-col>                                     
-
-
-                                    </v-row>
+                                    
                                     <v-row class="mb-n10">
 
                                     </v-row>
@@ -138,8 +118,10 @@ export default {
         values: '',
         value: null,
         health: '',
-        startdate: '',
-        enddate: ''
+        startYear: '',
+        endd: '',
+        skillName:'',
+        totalYear :''
 
     }),
 }

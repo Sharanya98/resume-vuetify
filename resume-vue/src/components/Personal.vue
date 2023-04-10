@@ -29,6 +29,22 @@
                                     </v-row>
                                     <v-row class="mb-n10">
 
+                                        <v-col cols="6" md="6">
+                                            <v-label class="label pb-2 font-weight-bold">First Name(Kana)</v-label>
+                                            <v-text-field v-model="firstnamekana" :rules="nameRules" variant="outlined"
+                                                clearable label="First name" required></v-text-field>
+                                        </v-col>
+
+                                        <v-col cols="6" md="6">
+                                            <v-label class="label pb-2 font-weight-bold">Last Name(Kana)</v-label>
+                                            <v-text-field v-model="lastnamekana" :rules="nameRules" variant="outlined" clearable
+                                                label="Last name" required></v-text-field>
+                                        </v-col>
+
+
+                                    </v-row>
+                                    <v-row class="mb-n10">
+
                                         <v-col cols="6" md="4">
                                             <v-label class="label pb-2 font-weight-bold">Gender</v-label>
                                             <v-radio-group v-model="gender" inline>
@@ -67,8 +83,8 @@
                                     <v-row class="mb-n10">
                                         <v-col cols="8" md="6">
                                             <v-label class="label pb-2 font-weight-bold">Country</v-label>
-                                            <v-combobox v-model="values" :items="country"
-                                                label="Please Select" clearable></v-combobox>
+                                            <v-combobox v-model="values" :items="country" label="Please Select"
+                                                clearable></v-combobox>
                                         </v-col>
                                         <v-col cols="4" md="4">
                                             <v-label class="label pb-2 font-weight-bold">Phone</v-label>
@@ -78,7 +94,7 @@
 
                                     </v-row>
                                     <v-row class="mb-n10">
-                                        
+
                                         <v-col cols="4" md="4">
                                             <v-label class="label pb-2 font-weight-bold">City</v-label>
                                             <v-text-field v-model="city" variant="outlined" clearable label="City"
@@ -86,24 +102,24 @@
                                         </v-col>
                                         <v-col cols="4" md="4">
                                             <v-label class="label pb-2 font-weight-bold">State/Province</v-label>
-                                            <v-text-field v-model="state" variant="outlined" clearable label="State/Province"
-                                                required></v-text-field>
+                                            <v-text-field v-model="state" variant="outlined" clearable
+                                                label="State/Province" required></v-text-field>
                                         </v-col>
                                         <v-col cols="4" md="4">
                                             <v-label class="label pb-2 font-weight-bold">ZIP/Postal code</v-label>
-                                            <v-text-field v-model="postal" variant="outlined" clearable label="ZIP/Postal code"
-                                                required></v-text-field>
+                                            <v-text-field v-model="postal" variant="outlined" clearable
+                                                label="ZIP/Postal code" required></v-text-field>
                                         </v-col>
 
                                     </v-row>
-                                    
+
 
                                 </v-container>
                             </v-form>
                         </v-sheet>
                     </v-col>
                     <v-col cols="3" sm="2">
-                        
+
                     </v-col>
 
 
@@ -151,8 +167,8 @@ export default {
         ],
         values: 'Japan',
         value: null,
-        edu(){
-            
+        edu() {
+
         }
     }),
 }
@@ -161,7 +177,9 @@ export default {
 .label {
 
     text-transform: uppercase;
-    margin-left: -100px;
+    align-items: start;
+   
 
 }
+
 </style>

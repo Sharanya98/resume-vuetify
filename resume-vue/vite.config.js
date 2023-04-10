@@ -19,6 +19,7 @@ export default defineConfig({
         configFile: 'src/styles/settings.scss',
       },
     }),
+    { src: "~/plugins/localbase", mode: "client" }
   ],
   define: { 'process.env': {} },
   resolve: {
