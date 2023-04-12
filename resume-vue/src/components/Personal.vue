@@ -14,31 +14,32 @@
                                     <v-row class="mb-n10">
 
                                         <v-col cols="6" md="6">
-                                            <v-label class="label pb-2 font-weight-bold">First Name</v-label>
-                                            <v-text-field v-model="firstname" :rules="nameRules" variant="outlined"
-                                                clearable label="First name" required></v-text-field>
+                                            <v-label class="text-uppercase pb-2 font-weight-bold">First Name</v-label>
+                                            <v-text-field v-model="personal.name.first_name" :rules="nameRules"
+                                                variant="outlined" clearable label="First name" required></v-text-field>
                                         </v-col>
 
                                         <v-col cols="6" md="6">
-                                            <v-label class="label pb-2 font-weight-bold">Last Name</v-label>
-                                            <v-text-field v-model="lastname" :rules="nameRules" variant="outlined" clearable
-                                                label="Last name" required></v-text-field>
+                                            <v-label class="text-uppercase pb-2 font-weight-bold">Last Name</v-label>
+                                            <v-text-field v-model="personal.name.last_name" :rules="nameRules"
+                                                variant="outlined" clearable label="Last name" required></v-text-field>
                                         </v-col>
 
 
                                     </v-row>
+
                                     <v-row class="mb-n10">
 
                                         <v-col cols="6" md="6">
-                                            <v-label class="label pb-2 font-weight-bold">First Name(Kana)</v-label>
-                                            <v-text-field v-model="firstnamekana" :rules="nameRules" variant="outlined"
-                                                clearable label="First name" required></v-text-field>
+                                            <v-label class="text-uppercase pb-2 font-weight-bold">First Name(Kana)</v-label>
+                                            <v-text-field v-model="personal.name.first_name_kana" :rules="nameRules"
+                                                variant="outlined" clearable label="First name" required></v-text-field>
                                         </v-col>
 
                                         <v-col cols="6" md="6">
-                                            <v-label class="label pb-2 font-weight-bold">Last Name(Kana)</v-label>
-                                            <v-text-field v-model="lastnamekana" :rules="nameRules" variant="outlined" clearable
-                                                label="Last name" required></v-text-field>
+                                            <v-label class="text-uppercase pb-2 font-weight-bold">Last Name(Kana)</v-label>
+                                            <v-text-field v-model="personal.name.last_name_kana" :rules="nameRules"
+                                                variant="outlined" clearable label="Last name" required></v-text-field>
                                         </v-col>
 
 
@@ -46,72 +47,66 @@
                                     <v-row class="mb-n10">
 
                                         <v-col cols="6" md="4">
-                                            <v-label class="label pb-2 font-weight-bold">Gender</v-label>
-                                            <v-radio-group v-model="gender" inline>
+                                            <v-label class="text-uppercase pb-2 font-weight-bold">Gender</v-label>
+                                            <v-radio-group v-model="personal.sex" inline>
                                                 <v-radio label="Male" value="Male"></v-radio>
                                                 <v-radio label="Female" value="Female"></v-radio>
                                             </v-radio-group>
                                         </v-col>
-
-
-
-
-
                                     </v-row>
                                     <v-row class="mb-n10">
-                                        <v-col cols="6" md="5">
-                                            <v-label class="label pb-2 font-weight-bold">BirthDate</v-label>
-                                            <v-text-field v-model="birthdate" variant="outlined" clearable
+                                        <v-col cols="6" md="6">
+                                            <v-label class="text-uppercase pb-2 font-weight-bold">BirthDate</v-label>
+                                            <v-text-field v-model="personal.birthday" variant="outlined" clearable
                                                 label="YYYY/MM/DD" required></v-text-field>
                                         </v-col>
-                                    </v-row>
-                                    <v-row class="mb-n10">
-                                        <v-col cols="6" md="5">
-                                            <v-label class="label pb-2 font-weight-bold">Nationality</v-label>
-                                            <v-text-field v-model="nationality" variant="outlined" clearable
+                                        <v-col cols="6" md="6">
+                                            <v-label class="text-uppercase pb-2 font-weight-bold">Nationality</v-label>
+                                            <v-text-field v-model="personal.nationality" variant="outlined" clearable
                                                 label="Nationality" required></v-text-field>
                                         </v-col>
+
                                     </v-row>
+      
                                     <v-row class="mb-n10">
-                                        <v-col cols="12" md="8">
-                                            <v-label class="label pb-2 font-weight-bold">Email</v-label>
-                                            <v-text-field v-model="email" variant="outlined" clearable label="Email"
-                                                required class="w-75"></v-text-field>
+                                        <v-col cols="6" md="6">
+                                            <v-label class="text-uppercase pb-2 font-weight-bold">Email</v-label>
+                                            <v-text-field v-model="personal.email" variant="outlined" clearable
+                                                label="Email" required></v-text-field>
+                                        </v-col>
+                                        <v-col cols="6" md="6">
+                                            <v-label class="text-uppercase pb-2 font-weight-bold">Phone</v-label>
+                                            <v-text-field v-model="personal.phone" variant="outlined" clearable
+                                                label="Phone" required></v-text-field>
                                         </v-col>
 
                                     </v-row>
-                                    <v-row class="mb-n10">
-                                        <v-col cols="8" md="6">
-                                            <v-label class="label pb-2 font-weight-bold">Country</v-label>
-                                            <v-combobox v-model="values" :items="country" label="Please Select"
-                                                clearable></v-combobox>
-                                        </v-col>
-                                        <v-col cols="4" md="4">
-                                            <v-label class="label pb-2 font-weight-bold">Phone</v-label>
-                                            <v-text-field v-model="phone" variant="outlined" clearable label="Phone"
-                                                required></v-text-field>
-                                        </v-col>
-
-                                    </v-row>
+                                    
                                     <v-row class="mb-n10">
 
                                         <v-col cols="4" md="4">
-                                            <v-label class="label pb-2 font-weight-bold">City</v-label>
-                                            <v-text-field v-model="city" variant="outlined" clearable label="City"
-                                                required></v-text-field>
+                                            <v-label class="text-uppercase pb-2 font-weight-bold">Full_Address</v-label>
+                                            <v-text-field v-model="personal.address.full_address" variant="outlined"
+                                                clearable label="Full_Address" required></v-text-field>
                                         </v-col>
                                         <v-col cols="4" md="4">
-                                            <v-label class="label pb-2 font-weight-bold">State/Province</v-label>
-                                            <v-text-field v-model="state" variant="outlined" clearable
-                                                label="State/Province" required></v-text-field>
+                                            <v-label
+                                                class="text-uppercase pb-2 font-weight-bold">Full_Address_kana</v-label>
+                                            <v-text-field v-model="personal.address.full_address_kana" variant="outlined"
+                                                clearable label="Full_Address_kana" required></v-text-field>
                                         </v-col>
                                         <v-col cols="4" md="4">
-                                            <v-label class="label pb-2 font-weight-bold">ZIP/Postal code</v-label>
-                                            <v-text-field v-model="postal" variant="outlined" clearable
-                                                label="ZIP/Postal code" required></v-text-field>
+                                            <v-label class="text-uppercase pb-2 font-weight-bold">ZIP/Postal code</v-label>
+                                            <v-text-field v-model="personal.address.postal_code" variant="outlined"
+                                                clearable label="ZIP/Postal code" required></v-text-field>
                                         </v-col>
-
+                                       
                                     </v-row>
+                                    <v-row class="flex justify-start pa-4">
+                                        
+                                        <v-btn @click="addPersonalData" color="deep-purple-accent-2" size="large">Add Data</v-btn>
+                                    </v-row>
+                                   
 
 
                                 </v-container>
@@ -130,12 +125,29 @@
 </template>
   
 <script>
-import Education from './Education.vue'
+import { mapState, mapActions } from 'vuex';
 export default {
     data: () => ({
         valid: false,
-        firstname: '',
-        lastname: '',
+        personal: {
+            name: {
+                first_name: "",
+                last_name: "",
+                first_name_kana: "",
+                last_name_kana: "",
+            },
+            sex: '',
+            birthday: "",
+            nationality: "",
+            email: "",
+            address: {
+                postal_code: "",
+                full_address: "",
+                full_address_kana: "",
+            },
+            phone: ""
+
+        },
         nameRules: [
             value => {
                 if (value) return true
@@ -148,7 +160,6 @@ export default {
                 return 'Name must be less than 10 characters.'
             },
         ],
-        email: '',
         emailRules: [
             value => {
                 if (value) return true
@@ -161,25 +172,38 @@ export default {
                 return 'E-mail must be valid.'
             },
         ],
-        gender: '',
-        country: [
-            "Afghanistan", "Aland Islands", "Albania", "Algeria", "American Samoa", "Andorra", "Angola", "Anguilla", "Antarctica", "Antigua and Barbuda", "Argentina", "Armenia", "Aruba", "Australia", "Austria", "Azerbaijan", "Bahamas", "Bahrain", "Bangladesh", "Barbados", "Belarus", "Belgium", "Belize", "Benin", "Bermuda", "Bhutan", "Bolivia", "Bonaire, Sint Eustatius and Saba", "Bosnia and Herzegovina", "Botswana", "Bouvet Island", "Brazil", "British Indian Ocean Territory", "Brunei Darussalam", "Bulgaria", "Burkina Faso", "Burundi", "Cambodia", "Cameroon", "Canada", "Cape Verde", "Cayman Islands", "Central African Republic", "Chad", "Chile", "China", "Christmas Island", "Cocos (Keeling) Islands", "Colombia", "Comoros", "Congo", "Congo, Democratic Republic of the Congo", "Cook Islands", "Costa Rica", "Cote D'Ivoire", "Croatia", "Cuba", "Curacao", "Cyprus", "Czech Republic", "Denmark", "Djibouti", "Dominica", "Dominican Republic", "Ecuador", "Egypt", "El Salvador", "Equatorial Guinea", "Eritrea", "Estonia", "Ethiopia", "Falkland Islands (Malvinas)", "Faroe Islands", "Fiji", "Finland", "France", "French Guiana", "French Polynesia", "French Southern Territories", "Gabon", "Gambia", "Georgia", "Germany", "Ghana", "Gibraltar", "Greece", "Greenland", "Grenada", "Guadeloupe", "Guam", "Guatemala", "Guernsey", "Guinea", "Guinea-Bissau", "Guyana", "Haiti", "Heard Island and Mcdonald Islands", "Holy See (Vatican City State)", "Honduras", "Hong Kong", "Hungary", "Iceland", "India", "Indonesia", "Iran, Islamic Republic of", "Iraq", "Ireland", "Isle of Man", "Israel", "Italy", "Jamaica", "Japan", "Jersey", "Jordan", "Kazakhstan", "Kenya", "Kiribati", "Korea, Democratic People's Republic of", "Korea, Republic of", "Kosovo", "Kuwait", "Kyrgyzstan", "Lao People's Democratic Republic", "Latvia", "Lebanon", "Lesotho", "Liberia", "Libyan Arab Jamahiriya", "Liechtenstein", "Lithuania", "Luxembourg", "Macao", "Macedonia, the Former Yugoslav Republic of", "Madagascar", "Malawi", "Malaysia", "Maldives", "Mali", "Malta", "Marshall Islands", "Martinique", "Mauritania", "Mauritius", "Mayotte", "Mexico", "Micronesia, Federated States of", "Moldova, Republic of", "Monaco", "Mongolia", "Montenegro", "Montserrat", "Morocco", "Mozambique", "Myanmar", "Namibia", "Nauru", "Nepal", "Netherlands", "Netherlands Antilles", "New Caledonia", "New Zealand", "Nicaragua", "Niger", "Nigeria", "Niue", "Norfolk Island", "Northern Mariana Islands", "Norway", "Oman", "Pakistan", "Palau", "Palestinian Territory, Occupied", "Panama", "Papua New Guinea", "Paraguay", "Peru", "Philippines", "Pitcairn", "Poland", "Portugal", "Puerto Rico", "Qatar", "Reunion", "Romania", "Russian Federation", "Rwanda", "Saint Barthelemy", "Saint Helena", "Saint Kitts and Nevis", "Saint Lucia", "Saint Martin", "Saint Pierre and Miquelon", "Saint Vincent and the Grenadines", "Samoa", "San Marino", "Sao Tome and Principe", "Saudi Arabia", "Senegal", "Serbia", "Serbia and Montenegro", "Seychelles", "Sierra Leone", "Singapore", "Sint Maarten", "Slovakia", "Slovenia", "Solomon Islands", "Somalia", "South Africa", "South Georgia and the South Sandwich Islands", "South Sudan", "Spain", "Sri Lanka", "Sudan", "Suriname", "Svalbard and Jan Mayen", "Swaziland", "Sweden", "Switzerland", "Syrian Arab Republic", "Taiwan, Province of China", "Tajikistan", "Tanzania, United Republic of", "Thailand", "Timor-Leste", "Togo", "Tokelau", "Tonga", "Trinidad and Tobago", "Tunisia", "Turkey", "Turkmenistan", "Turks and Caicos Islands", "Tuvalu", "Uganda", "Ukraine", "United Arab Emirates", "United Kingdom", "United States", "United States Minor Outlying Islands", "Uruguay", "Uzbekistan", "Vanuatu", "Venezuela", "Viet Nam", "Virgin Islands, British", "Virgin Islands, U.s.", "Wallis and Futuna", "Western Sahara", "Yemen", "Zambia", "Zimbabwe"
-        ],
-        values: 'Japan',
-        value: null,
-        edu() {
+    }),
+    computed: {
+       
+        personalData() {
+            return {
+                first_name: this.$store.personal.name.first_name,
+                last_name: this.personal.name.last_name,
+                first_name_kana: this.personal.name.first_name_kana,
+                last_name_kana: this.personal.name.last_name_kana,
+
+                sex: this.personal.sex,
+                birthday: this.personal.birthday,
+                nationality: this.personal.nationality,
+                email: this.personal.email,
+
+                postal_code: this.personal.address.postal_code,
+                full_address: this.personal.address.full_address,
+                full_address_kana: this.personal.address.full_address_kana,
+
+                phone: this.personal.phone
+
+            }
+
 
         }
-    }),
+    },
+    methods: {
+       
+        addPersonalData() {
+            this.$store.dispatch('setPersonalData', this.personalData)
+            console.log("user  added", this.personalData)
+        }
+    }
 }
 </script>
-<style>
-.label {
-
-    text-transform: uppercase;
-    align-items: start;
-   
-
-}
-
-</style>

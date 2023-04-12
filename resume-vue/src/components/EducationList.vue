@@ -67,9 +67,9 @@ export default {
             return this.datavalue    }
     },
     watch: {
-        eduProp() {
-            this.datavalue = Object.assign({}, props.eduProp);
-        }
+        // eduProp() {
+        //     this.datavalue = Object.assign({}, props.eduProp);
+        // }
 
     }
 }

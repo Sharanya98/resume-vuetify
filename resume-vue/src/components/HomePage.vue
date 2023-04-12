@@ -1,9 +1,9 @@
 <template>
   <v-container class="fill-height">
-    <v-responsive class="d-flex align-center text-center fill-height">
+    <v-responsive class="d-flex align-center ">
 
 
-      <div class=" text-h3 font-weight-bold mb-n1">Oyester Resume Builder</div>
+      <div class=" text-h3 font-weight-bold mb-n1 text-center">Oyester Resume Builder</div>
 
       
 
@@ -23,21 +23,37 @@
             <v-container fluid>
               <v-card v-if="n==1">
                 <Personal />
+                <div class="d-flex justify-center justify-space-evenly flex-wrap bg-surface-variant">
+                  <v-btn  size="x-large" variant="text" class="d-flex justify-center  bg-surface-variant" @click="Next(n)">Next</v-btn>
+                </div>
+               
               </v-card>
               <v-card v-if="n==2">
                 <Education />
+                
+                <div class="d-flex justify-center justify-space-evenly flex-wrap bg-surface-variant">
+                  <v-btn  size="x-large" variant="text" class="d-flex justify-center  bg-surface-variant" @click="Next(n)">Next</v-btn>
+                </div>
               </v-card>
               <v-card v-if="n==3">
                 <Work />
+                <div class="d-flex justify-center justify-space-evenly flex-wrap bg-surface-variant">
+                  <v-btn  size="x-large" variant="text" class="d-flex justify-center  bg-surface-variant" @click="Next(n)">Next</v-btn>
+                </div>
               </v-card>
               <v-card v-if="n==4">
                 <Skills />
+                <div class="d-flex justify-center justify-space-evenly flex-wrap bg-surface-variant">
+                  <v-btn  size="x-large" variant="text" class="d-flex justify-center  bg-surface-variant" @click="Next(n)">Next</v-btn>
+                </div>
               </v-card>
               <v-card v-if="n==5">
                 <Build />
+                
               </v-card>
-            
+              
             </v-container>
+           
           </v-window-item>
         </v-window>
       </v-card>
@@ -64,7 +80,12 @@ export default {
     Education,
     Work,
     Build
-  }
+  },
+  methods:{
+    Next(n){
+      this.tab= n+1
+    }
+}
 }
 </script>
   

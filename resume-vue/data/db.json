@@ -1,0 +1,62 @@
+{
+    "name": {
+    "first_name": "ラビンソン",
+    "last_name": "タパ",
+    "first_name_kana": "ラビンソン",
+    "last_name_kana": "タパ"
+    },
+    "sex": "",
+    "birthday": "1998-08-16",
+    "nationality": "インド人",
+    "email": "rabinson.thapa@grrow.jp",
+    "address": {
+    "postal_code": "1234567",
+    "full_address": "試験用アドレス",
+    "full_address_kana": "カナ アドレス"
+    },
+    "phone": "12345678909",
+    "bio": "こんにちは、私の名前はRabinson Thapaです。私はインド出身です。こんにちは、私の名前はRabinson Thapaです。私はインド出身です。こんにちは、私の名前はRabinson Thapaです。私はインド出身です。こんにちは、私の名前はRabinson Thapaです。私はインド出身です。こんにちは、私の名前はRabinson Thapaです。私はインド出身です。こんにちは、私の名前はRabinson Thapaです。私はインド出身です。こんにちは、私の名前はRabinson Thapaです。私はインド出身です。こんにちは、私の名前はRabinson Thapaです。私はインド出身です。こんにちは、私の名前はRabinson Thapaです。私はインド出身です。こんにちは、私の名前はRabinson Thapaです。私はインド出身です。こんにちは、私の名前はRabinson Thapaです。私はインド出身です。こんにちは、私の名前はRabinson Thapaです。私はインド出身です。こんにちは、私の名前はRabinson Thapaです。私はインド出身です。こんにちは、私の名前はRabinson Thapaです。私はインド出身です。",
+    "experience": [
+    {
+    "companyName": "会社1",
+    "position": "フルスタック開発者",
+    "startYear": "2020",
+    "startMonth": "2",
+    "current": "0",
+    "description": "ここでフルスタック開発者として働きました。ここでフルスタック開発者として働きました。ここでフルスタック開発者として働きました。ここでフルスタック開発者として働きました。ここでフルスタック開発者として働きました。ここでフルスタック開発者として働きました。ここでフルスタック開発者として働きました。ここでフルスタック開発者として働きました。ここでフルスタック開発者として働きました。ここでフルスタック開発者として働きました。ここでフルスタック開発者として働きました。ここでフルスタック開発者として働きました。"
+    }
+    ],
+    "education": [
+    {
+    "schoolName": "学校1",
+    "degree": "修士",
+    "startYear": "2022",
+    "startMonth": "2",
+    "current": "1",
+    "description": "ITの修士。Webビジネステクノロジーメジャー、Webシステム開発集中コース。"
+    }
+    ],
+    "your_motive": "私の動機。私の動機。私の動機。私の動機。私の動機。私の動機。私の動機。私の動機。私の動機。私の動機。私の動機。私の動機。私の動機。私の動機。私の動機。私の動機。私の動機。私の動機。私の動機。私の動機。私の動機。私の動機。私の動機。私の動機。私の動機。私の動機。私の動機。私の動機。私の動機。私の動機。私の動機。私の動機。私の動機。私の動機。私の動機。私の動機。私の動機。私の動機。私の動機。私の動機。私の動機。私の動機。私の動機。私の動機。私の動機。私の動機。私の動機。",
+    "self_PR": "自己PR自己PR自己PR自己PR自己PR自己PR自己PR自己PR自己PR自己PR自己PR自己PR自己PR自己PR自己PR自己PR自己PR自己PR自己PR自己PR自己PR自己PR自己PR",
+    "licenses_certification": [
+    {
+    "licenseName": "AWS",
+    "licenseDateYear": "2022",
+    "licenseDateMonth": "2"
+    }
+    ],
+    "programming_lanuage": ["HTML", "CSS", "JS", "NodeJS"],
+    "health_status": ["健康状態良好"],
+    "extra_curricular_activities": [{
+    "activityName": "アルバイト",
+    "totalYear": "2"
+    }],
+    "special_skills_and_hobbies": [{
+    "skillName": "何を意味するのかわかりません",
+    "totalYear": "3"
+    }],
+    "sports": [{
+    "sportName": "フットボール",
+    "totalYear": "6"
+    }]
+    }
