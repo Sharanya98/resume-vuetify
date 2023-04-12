@@ -177,7 +177,7 @@ export default {
        
         personalData() {
             return {
-                first_name: this.$store.personal.name.first_name,
+                first_name: this.personal.name.first_name,
                 last_name: this.personal.name.last_name,
                 first_name_kana: this.personal.name.first_name_kana,
                 last_name_kana: this.personal.name.last_name_kana,
