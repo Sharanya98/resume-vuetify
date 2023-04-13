@@ -4,6 +4,12 @@
             <v-container class="">
                 <v-row>
                     <v-col cols="3" sm="2">
+                         <!-- <p v-if="success" class="success">
+                            SUCCESS!
+                        </p>
+                        <p v-if="error" class="error">
+                            ERROR: {{ error }}
+                        </p>  -->
 
                     </v-col>
 
@@ -15,13 +21,13 @@
 
                                         <v-col cols="6" md="6">
                                             <v-label class="text-uppercase pb-2 font-weight-bold">First Name</v-label>
-                                            <v-text-field v-model="personal.name.first_name" :rules="nameRules"
+                                            <v-text-field v-model="first_name" :rules="nameRules"
                                                 variant="outlined" clearable label="First name" required></v-text-field>
                                         </v-col>
 
                                         <v-col cols="6" md="6">
                                             <v-label class="text-uppercase pb-2 font-weight-bold">Last Name</v-label>
-                                            <v-text-field v-model="personal.name.last_name" :rules="nameRules"
+                                            <v-text-field v-model="last_name" :rules="nameRules"
                                                 variant="outlined" clearable label="Last name" required></v-text-field>
                                         </v-col>
 
@@ -32,13 +38,13 @@
 
                                         <v-col cols="6" md="6">
                                             <v-label class="text-uppercase pb-2 font-weight-bold">First Name(Kana)</v-label>
-                                            <v-text-field v-model="personal.name.first_name_kana" :rules="nameRules"
+                                            <v-text-field v-model="first_name_kana" :rules="nameRules"
                                                 variant="outlined" clearable label="First name" required></v-text-field>
                                         </v-col>
 
                                         <v-col cols="6" md="6">
                                             <v-label class="text-uppercase pb-2 font-weight-bold">Last Name(Kana)</v-label>
-                                            <v-text-field v-model="personal.name.last_name_kana" :rules="nameRules"
+                                            <v-text-field v-model="last_name_kana" :rules="nameRules"
                                                 variant="outlined" clearable label="Last name" required></v-text-field>
                                         </v-col>
 
@@ -48,7 +54,7 @@
 
                                         <v-col cols="6" md="4">
                                             <v-label class="text-uppercase pb-2 font-weight-bold">Gender</v-label>
-                                            <v-radio-group v-model="personal.sex" inline>
+                                            <v-radio-group v-model="sex" inline>
                                                 <v-radio label="Male" value="Male"></v-radio>
                                                 <v-radio label="Female" value="Female"></v-radio>
                                             </v-radio-group>
@@ -57,56 +63,57 @@
                                     <v-row class="mb-n10">
                                         <v-col cols="6" md="6">
                                             <v-label class="text-uppercase pb-2 font-weight-bold">BirthDate</v-label>
-                                            <v-text-field v-model="personal.birthday" variant="outlined" clearable
+                                            <v-text-field v-model="birthday" variant="outlined" clearable
                                                 label="YYYY/MM/DD" required></v-text-field>
                                         </v-col>
                                         <v-col cols="6" md="6">
                                             <v-label class="text-uppercase pb-2 font-weight-bold">Nationality</v-label>
-                                            <v-text-field v-model="personal.nationality" variant="outlined" clearable
+                                            <v-text-field v-model="nationality" variant="outlined" clearable
                                                 label="Nationality" required></v-text-field>
                                         </v-col>
 
                                     </v-row>
-      
+
                                     <v-row class="mb-n10">
                                         <v-col cols="6" md="6">
                                             <v-label class="text-uppercase pb-2 font-weight-bold">Email</v-label>
-                                            <v-text-field v-model="personal.email" variant="outlined" clearable
+                                            <v-text-field v-model="email" variant="outlined" clearable
                                                 label="Email" required></v-text-field>
                                         </v-col>
                                         <v-col cols="6" md="6">
                                             <v-label class="text-uppercase pb-2 font-weight-bold">Phone</v-label>
-                                            <v-text-field v-model="personal.phone" variant="outlined" clearable
+                                            <v-text-field v-model="phone" variant="outlined" clearable
                                                 label="Phone" required></v-text-field>
                                         </v-col>
 
                                     </v-row>
-                                    
+
                                     <v-row class="mb-n10">
 
                                         <v-col cols="4" md="4">
                                             <v-label class="text-uppercase pb-2 font-weight-bold">Full_Address</v-label>
-                                            <v-text-field v-model="personal.address.full_address" variant="outlined"
+                                            <v-text-field v-model="full_address" variant="outlined"
                                                 clearable label="Full_Address" required></v-text-field>
                                         </v-col>
                                         <v-col cols="4" md="4">
                                             <v-label
                                                 class="text-uppercase pb-2 font-weight-bold">Full_Address_kana</v-label>
-                                            <v-text-field v-model="personal.address.full_address_kana" variant="outlined"
+                                            <v-text-field v-model="full_address_kana" variant="outlined"
                                                 clearable label="Full_Address_kana" required></v-text-field>
                                         </v-col>
                                         <v-col cols="4" md="4">
                                             <v-label class="text-uppercase pb-2 font-weight-bold">ZIP/Postal code</v-label>
-                                            <v-text-field v-model="personal.address.postal_code" variant="outlined"
+                                            <v-text-field v-model="postal_code" variant="outlined"
                                                 clearable label="ZIP/Postal code" required></v-text-field>
                                         </v-col>
-                                       
+
                                     </v-row>
                                     <v-row class="flex justify-start pa-4">
-                                        
-                                        <v-btn @click="addPersonalData" color="deep-purple-accent-2" size="large">Add Data</v-btn>
+
+                                        <v-btn @click="submit" color="deep-purple-accent-2" size="large">Add
+                                            Data</v-btn>
                                     </v-row>
-                                   
+
 
 
                                 </v-container>
@@ -126,28 +133,36 @@
   
 <script>
 import { mapState, mapActions } from 'vuex';
+import { createNamespacedHelpers } from 'vuex';
+import { SUBMIT } from '../store/action-types';
+
+import store from '../store';
+
+import {
+    profile,
+    mapAddressFields,
+    mapOtherFields,
+    mapNameFields,
+} from '../store/modules/build';
+
+
+if (!store.state.profile) store.registerModule(`profile`, profile);
+
+const {
+    mapActions: mapProfileActions,
+    mapState: mapProfileState,
+} = createNamespacedHelpers(`profile`);
+
+// const {
+//   mapMutations: mapContactMutations,
+// } = createNamespacedHelpers(`customer/contact`);
+
 export default {
     data: () => ({
         valid: false,
-        personal: {
-            name: {
-                first_name: "",
-                last_name: "",
-                first_name_kana: "",
-                last_name_kana: "",
-            },
-            sex: '',
-            birthday: "",
-            nationality: "",
-            email: "",
-            address: {
-                postal_code: "",
-                full_address: "",
-                full_address_kana: "",
-            },
-            phone: ""
-
-        },
+        
+           
+         
         nameRules: [
             value => {
                 if (value) return true
@@ -174,36 +189,23 @@ export default {
         ],
     }),
     computed: {
-       
-        personalData() {
-            return {
-                first_name: this.personal.name.first_name,
-                last_name: this.personal.name.last_name,
-                first_name_kana: this.personal.name.first_name_kana,
-                last_name_kana: this.personal.name.last_name_kana,
-
-                sex: this.personal.sex,
-                birthday: this.personal.birthday,
-                nationality: this.personal.nationality,
-                email: this.personal.email,
-
-                postal_code: this.personal.address.postal_code,
-                full_address: this.personal.address.full_address,
-                full_address_kana: this.personal.address.full_address_kana,
-
-                phone: this.personal.phone
-
-            }
 
 
-        }
+        ...mapProfileState([`error`, `success`]),
+        ...mapNameFields([`rows[0].first_name`, `rows[0].last_name`,`rows[0].first_name_kana`,`rows[0].last_name_kana`]),
+        ...mapAddressFields([`rows[0].full_address`, `rows[0].full_address_kana`, `rows[0].postal_code`]),
+        ...mapOtherFields([`rows[0].sex`,`rows[0].birthday`,`rows[0].nationality`,`rows[0].email`,`rows[0].phone`,`rows[0].bio`,`rows[0].your_motive`,`rows[0].self_PR`,`rows[0].health_status`])
+
     },
     methods: {
-       
-        addPersonalData() {
-            this.$store.dispatch('setPersonalData', this.personalData)
-            console.log("user  added", this.personalData)
-        }
+
+        // addPersonalData() {
+        //     this.$store.dispatch('setPersonalData', this.personalData)
+        //     console.log("user  added", this.personalData)
+        // }
+        ...mapProfileActions({
+            submit: SUBMIT,
+        }),
     }
 }
 </script>

@@ -1,12 +1,14 @@
 <template>
     <v-app id="inspire">
         <v-main class="bg-grey-lighten-3">
+            <!-- <p v-if="success" class="success">
+                SUCCESS!
+            </p>
+            <p v-if="error" class="error">
+                ERROR: {{ error }}
+            </p> -->
             <v-container>
                 <v-row>
-
-
-
-
                     <v-col cols="8" sm="8">
                         <v-sheet min-height="100vh" rounded="lg">
                             <v-form v-model="valid">
@@ -15,7 +17,7 @@
 
                                         <v-col cols="6" md="6">
                                             <v-label class="label pb-2 font-weight-bold">Institute Name</v-label>
-                                            <v-text-field v-model="educationField.schoolName" variant="outlined" clearable
+                                            <v-text-field v-model="education.schoolName" variant="outlined" clearable
                                                 label="Institute Name" required></v-text-field>
                                         </v-col>
 
@@ -25,8 +27,8 @@
                                     <v-row class="mb-n10">
                                         <v-col cols="8" md="6">
                                             <v-label class="label pb-2 font-weight-bold">Degree</v-label>
-                                            <v-combobox v-model="educationField.degreevalues" :items="degree"
-                                                label="Please Select" clearable></v-combobox>
+                                            <v-combobox v-model="education.degree" :items="degree" label="Please Select"
+                                                clearable></v-combobox>
                                         </v-col>
 
 
@@ -34,17 +36,17 @@
                                     <v-row class="mb-n10">
                                         <v-col cols="3" md="3">
                                             <v-label class="label pb-2 font-weight-bold">Start Year</v-label>
-                                            <v-text-field v-model="educationField.startYear" variant="outlined" clearable
-                                                label="YYYY" required></v-text-field>
+                                            <v-text-field v-model="education.startYear" variant="outlined" clearable label="YYYY"
+                                                required></v-text-field>
                                         </v-col>
                                         <v-col cols="3" md="3">
                                             <v-label class="label pb-2 font-weight-bold">Start Month</v-label>
-                                            <v-text-field v-model="educationField.startMonth" variant="outlined" clearable
-                                                label="MM" required></v-text-field>
+                                            <v-text-field v-model="education.startMonth" variant="outlined" clearable label="MM"
+                                                required></v-text-field>
                                         </v-col>
 
                                     </v-row>
-                                  
+
                                     <v-row class="">
                                         <v-col cols="1" md="1">
 
@@ -55,8 +57,9 @@
 
                                     </v-row>
                                     <v-row class="flex justify-start pa-4">
-                                        
-                                        <v-btn @click="addPersonalData" color="deep-purple-accent-2" size="large">Add Data</v-btn>
+
+                                        <v-btn @click="submit" color="deep-purple-accent-2" size="large">Add
+                                            Data</v-btn>
                                     </v-row>
 
 
@@ -67,10 +70,10 @@
                         </v-sheet>
 
                     </v-col>
-                    <v-col cols="4" sm="4">
+                <v-col cols="4" sm="4">
                         <div v-if="activate">
                             <v-container>
-                                <v-card class="mx-auto mb-4" max-width="344" v-for="(item, index) in educationField"
+                                <v-card class="mx-auto mb-4" max-width="344" v-for="(item, index) in education"
                                     :key="index">
 
                                     <v-card-item>
@@ -122,7 +125,7 @@
                             </v-container>
                         </div>
 
-                    </v-col>
+                    </v-col> 
 
 
                 </v-row>
@@ -138,6 +141,26 @@
 <script>
 import EducationList from './EducationList.vue'
 import { mapState, mapActions } from 'vuex';
+import { createNamespacedHelpers } from 'vuex';
+import { SUBMIT } from '../store/action-types';
+import store from '../store';
+import { profile, mapEducationFields} from '../store/modules/build'
+
+
+
+
+
+if (!store.state.profile) store.registerModule(`profile`, profile);
+
+const {
+    mapActions: mapProfileActions,
+    mapState: mapProfileState,
+} = createNamespacedHelpers(`profile`);
+
+const {
+  mapMutations: mapEducationMutations,
+} = createNamespacedHelpers(`profile/education`);
+
 
 export default {
     data: () => ({
@@ -147,9 +170,9 @@ export default {
             'Graduate(Phd)', 'Graduate(Ms)', 'Vocational School', 'University'
         ],
 
-        educationField: [{
+        education: [{
             schoolName: '',
-            degreevalues: '',
+            degree: '',
             startYear: '',
             startMonth: ''
         }],
@@ -163,15 +186,20 @@ export default {
         EducationList
     },
     computed: {
-        ...mapState(['education']),
+
+        ...mapProfileState([`error`, `success`]),
+        ...mapEducationFields({education : `rows`}),
+        
+        
+        
 
         EducationData() {
             return {
                 value: {
-                    schoolName: this.educationField.schoolName,
-                    degree: this.educationField.degreevalues,
-                    startYear: this.educationField.startYear,
-                    startMonth: this.educationField.startMonth
+                    schoolName: this.education.schoolName,
+                    degree: this.education.degree,
+                    startYear: this.education.startYear,
+                    startMonth: this.education.startMonth
                 }
 
 
@@ -180,45 +208,39 @@ export default {
         },
 
     },
-  
+
     methods: {
-        // addEducation() {
+        ...mapProfileActions({
+            submit: SUBMIT,
+        }),
+       
 
-        //     this.$store.dispatch('addEducation',this.EducationData)
-
-        //     console.log("edu value", this.EducationData)
-
-        // },
+  
+        
+        
+        
         addEducation() {
             this.activate = true
-            ///code to filter empty string
-            // const filterEmptyData = this.educationField.reduce((a, b) => {
-            //     const filteredObject = Object.fromEntries(
-            //         Object.entries(b).filter(([_, value]) => value !== "")
-            //     );
-            //     if (Object.keys(filteredObject).length > 0) {
-            //         a.push(filteredObject);
-            //     }
-            //     console.log("a",a)
-            //     return a;
-            // }, []);
-            // console.log("filterEmptyData",filterEmptyData)
-            this.educationField.push({
+            
+            this.education.push({
 
                 schoolName: this.EducationData.value.schoolName,
                 degree: this.EducationData.value.degree,
                 startYear: this.EducationData.value.startYear,
                 startMonth: this.EducationData.value.startMonth
             })
-            console.log("educationfield", this.educationField)
+            console.log("educationfield", this.education)
             console.log("educationdata", this.EducationData)
+            
+           
+            
         },
         deleteEducation(index) {
-            this.educationField.splice(index, 1)
+            this.education.splice(index, 1)
             console.log("index", index)
         },
         addPersonalData() {
-            this.$store.dispatch('setPersonalData', this.educationField)
+            this.$store.dispatch('addmore', this.education)
             console.log("education  added", this.educationField)
         }
 

@@ -58,7 +58,7 @@
                             </v-row>
                             <v-row class="flex justify-center pa-4">
 
-                                <v-btn @click="addPersonalData" color="deep-purple-accent-2" size="large">Add
+                                <v-btn @click="submit" color="deep-purple-accent-2" size="large">Add
                                     Data</v-btn>
                             </v-row>
 
@@ -76,26 +76,39 @@
 </template>
   
 <script>
+import { mapState, mapActions } from 'vuex';
+import { createNamespacedHelpers } from 'vuex';
+import { SUBMIT } from '../store/action-types';
+
+import store from '../store';
+
+import {
+    profile,
+   
+    mapOtherFields,
+   
+} from '../store/modules/build';
+
+if (!store.state.profile) store.registerModule(`profile`, profile);
+
+const {
+    mapActions: mapProfileActions,
+    mapState: mapProfileState,
+} = createNamespacedHelpers(`profile`);
 export default {
     data: () => ({
-        your_motive :'',
-        self_PR:'',
-        bio:''
+        
     }),
     computed:{
-        descpData(){
-            return{
-                your_motive:this.your_motive,
-                self_PR:this.self_PR,
-                bio:this.bio
-            }
-        }
+       
+        ...mapProfileState([`error`, `success`]),
+        ...mapOtherFields([`rows[0].bio`,`rows[0].your_motive`,`rows[0].self_PR`])
     },
     methods:{
-        addPersonalData() {
-            this.$store.dispatch('setPersonalData', this.descpData)
-            console.log("descp added", this.descpData)
-        }
+       
+        ...mapProfileActions({
+            submit: SUBMIT,
+        }),
     }
 }
 </script>
