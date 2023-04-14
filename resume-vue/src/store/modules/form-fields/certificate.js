@@ -1,11 +1,11 @@
 import { getField, updateField } from 'vuex-map-fields';
 
 
-import { Skill } from '../../../models/Skills';
+import { Certificate } from '../../../models/Certificates';
 
 const mutations = {
   updateField,
-  addskill(state,payload){
+  addcertificate(state,payload){
     state.rows.push(payload)
   }
 };
@@ -16,7 +16,7 @@ const getters = {
 };
 
 const state = () => ({
-  rows: [new Skill()],
+  rows: [new Certificate()],
 });
 
 export default {

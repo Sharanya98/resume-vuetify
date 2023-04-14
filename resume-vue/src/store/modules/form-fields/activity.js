@@ -1,11 +1,11 @@
 import { getField, updateField } from 'vuex-map-fields';
 
 
-import { Skill } from '../../../models/Skills';
+import { Activity } from '../../../models/Activitys';
 
 const mutations = {
   updateField,
-  addskill(state,payload){
+  addactivity(state,payload){
     state.rows.push(payload)
   }
 };
@@ -16,7 +16,7 @@ const getters = {
 };
 
 const state = () => ({
-  rows: [new Skill()],
+  rows: [new Activity()],
 });
 
 export default {

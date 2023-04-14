@@ -5,8 +5,8 @@ import { Education } from '../../../models/Education';
 
 const mutations = {
   updateField,
-  addmore(state){
-    state.rows.push(new Education())
+  addmore(state,payload){
+    state.rows.push(payload)
   }
 };
 

@@ -4,12 +4,7 @@
             <v-container class="">
                 <v-row>
                     <v-col cols="3" sm="2">
-                         <!-- <p v-if="success" class="success">
-                            SUCCESS!
-                        </p>
-                        <p v-if="error" class="error">
-                            ERROR: {{ error }}
-                        </p>  -->
+
 
                     </v-col>
 
@@ -21,35 +16,35 @@
 
                                         <v-col cols="6" md="6">
                                             <v-label class="text-uppercase pb-2 font-weight-bold">First Name</v-label>
-                                            <v-text-field v-model="first_name" :rules="nameRules"
-                                                variant="outlined" clearable label="First name" required></v-text-field>
+                                            <v-text-field v-model="first_name" :rules="nameRules" variant="outlined"
+                                                clearable label="First name" required></v-text-field>
                                         </v-col>
 
                                         <v-col cols="6" md="6">
                                             <v-label class="text-uppercase pb-2 font-weight-bold">Last Name</v-label>
-                                            <v-text-field v-model="last_name" :rules="nameRules"
-                                                variant="outlined" clearable label="Last name" required></v-text-field>
+                                            <v-text-field v-model="last_name" :rules="nameRules" variant="outlined"
+                                                clearable label="Last name" required></v-text-field>
                                         </v-col>
 
 
                                     </v-row>
-
                                     <v-row class="mb-n10">
 
                                         <v-col cols="6" md="6">
                                             <v-label class="text-uppercase pb-2 font-weight-bold">First Name(Kana)</v-label>
-                                            <v-text-field v-model="first_name_kana" :rules="nameRules"
-                                                variant="outlined" clearable label="First name" required></v-text-field>
+                                            <v-text-field v-model="first_name_Kana" :rules="nameRules" variant="outlined"
+                                                clearable label="First name" required></v-text-field>
                                         </v-col>
 
                                         <v-col cols="6" md="6">
                                             <v-label class="text-uppercase pb-2 font-weight-bold">Last Name(Kana)</v-label>
-                                            <v-text-field v-model="last_name_kana" :rules="nameRules"
-                                                variant="outlined" clearable label="Last name" required></v-text-field>
+                                            <v-text-field v-model="last_name_Kana" :rules="nameRules" variant="outlined"
+                                                clearable label="Last name" required></v-text-field>
                                         </v-col>
 
 
                                     </v-row>
+
                                     <v-row class="mb-n10">
 
                                         <v-col cols="6" md="4">
@@ -63,8 +58,8 @@
                                     <v-row class="mb-n10">
                                         <v-col cols="6" md="6">
                                             <v-label class="text-uppercase pb-2 font-weight-bold">BirthDate</v-label>
-                                            <v-text-field v-model="birthday" variant="outlined" clearable
-                                                label="YYYY/MM/DD" required></v-text-field>
+                                            <v-text-field v-model="birthday" variant="outlined" clearable label="YYYY/MM/DD"
+                                                required></v-text-field>
                                         </v-col>
                                         <v-col cols="6" md="6">
                                             <v-label class="text-uppercase pb-2 font-weight-bold">Nationality</v-label>
@@ -77,13 +72,13 @@
                                     <v-row class="mb-n10">
                                         <v-col cols="6" md="6">
                                             <v-label class="text-uppercase pb-2 font-weight-bold">Email</v-label>
-                                            <v-text-field v-model="email" variant="outlined" clearable
-                                                label="Email" required></v-text-field>
+                                            <v-text-field v-model="email" variant="outlined" clearable label="Email"
+                                                required></v-text-field>
                                         </v-col>
                                         <v-col cols="6" md="6">
                                             <v-label class="text-uppercase pb-2 font-weight-bold">Phone</v-label>
-                                            <v-text-field v-model="phone" variant="outlined" clearable
-                                                label="Phone" required></v-text-field>
+                                            <v-text-field v-model="phone" variant="outlined" clearable label="Phone"
+                                                required></v-text-field>
                                         </v-col>
 
                                     </v-row>
@@ -92,26 +87,26 @@
 
                                         <v-col cols="4" md="4">
                                             <v-label class="text-uppercase pb-2 font-weight-bold">Full_Address</v-label>
-                                            <v-text-field v-model="full_address" variant="outlined"
-                                                clearable label="Full_Address" required></v-text-field>
+                                            <v-text-field v-model="full_address" variant="outlined" clearable
+                                                label="Full_Address" required></v-text-field>
                                         </v-col>
                                         <v-col cols="4" md="4">
                                             <v-label
                                                 class="text-uppercase pb-2 font-weight-bold">Full_Address_kana</v-label>
-                                            <v-text-field v-model="full_address_kana" variant="outlined"
-                                                clearable label="Full_Address_kana" required></v-text-field>
+                                            <v-text-field v-model="full_address_kana" variant="outlined" clearable
+                                                label="Full_Address_kana" required></v-text-field>
                                         </v-col>
                                         <v-col cols="4" md="4">
                                             <v-label class="text-uppercase pb-2 font-weight-bold">ZIP/Postal code</v-label>
-                                            <v-text-field v-model="postal_code" variant="outlined"
-                                                clearable label="ZIP/Postal code" required></v-text-field>
+                                            <v-text-field v-model="postal_code" variant="outlined" clearable
+                                                label="ZIP/Postal code" required></v-text-field>
                                         </v-col>
 
                                     </v-row>
                                     <v-row class="flex justify-start pa-4">
 
-                                        <v-btn @click="submit" color="deep-purple-accent-2" size="large">Add
-                                            Data</v-btn>
+                                        <!-- <v-btn @click="submit" color="deep-purple-accent-2" size="large">Add
+                                            Data</v-btn> -->
                                     </v-row>
 
 
@@ -160,9 +155,7 @@ const {
 export default {
     data: () => ({
         valid: false,
-        
-           
-         
+
         nameRules: [
             value => {
                 if (value) return true
@@ -192,17 +185,13 @@ export default {
 
 
         ...mapProfileState([`error`, `success`]),
-        ...mapNameFields([`rows[0].first_name`, `rows[0].last_name`,`rows[0].first_name_kana`,`rows[0].last_name_kana`]),
+        ...mapNameFields([`rows[0].first_name`, `rows[0].last_name`, `rows[0].first_name_Kana`, `rows[0].last_name_Kana`]),
         ...mapAddressFields([`rows[0].full_address`, `rows[0].full_address_kana`, `rows[0].postal_code`]),
-        ...mapOtherFields([`rows[0].sex`,`rows[0].birthday`,`rows[0].nationality`,`rows[0].email`,`rows[0].phone`,`rows[0].bio`,`rows[0].your_motive`,`rows[0].self_PR`,`rows[0].health_status`])
+        ...mapOtherFields([`rows[0].sex`, `rows[0].birthday`, `rows[0].nationality`, `rows[0].email`, `rows[0].phone`, `rows[0].bio`, `rows[0].your_motive`, `rows[0].self_PR`, `rows[0].health_status`])
 
     },
     methods: {
 
-        // addPersonalData() {
-        //     this.$store.dispatch('setPersonalData', this.personalData)
-        //     console.log("user  added", this.personalData)
-        // }
         ...mapProfileActions({
             submit: SUBMIT,
         }),

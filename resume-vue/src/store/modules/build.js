@@ -16,6 +16,11 @@ import name from "./form-fields/name";
 
 import other from "./form-fields/other";
 import education from "./form-fields/education";
+import experience from "./form-fields/experience";
+import skill from "./form-fields/skill";
+import activity from "./form-fields/activity";
+import sport from "./form-fields/sport";
+import certificate from "./form-fields/certificate";
 
 const actions = {
   async [SUBMIT]({ commit, state }) {
@@ -40,7 +45,13 @@ const actions = {
         your_motive: state.other.rows[0].your_motive,
         self_PR: state.other.rows[0].self_PR,
         health_status: state.other.rows[0].health_status,
-        education : state.education.rows
+        programming_lanuage : state.other.rows[0].programming_lanuage,
+        education : state.education.rows[1],
+        experience : state.experience.rows[1],
+        skill : state.skill.rows[1],
+        activity : state.activity.rows[1],
+        sports : state.sport.rows[1],
+        certificate : state.certificate.rows[1],
       });
       const requestData = createRequest(profileData);
 
@@ -73,7 +84,7 @@ const mutations = {
 const state = () => ({
   error: false,
   success: false,
-  education :[]
+ 
   
  
 });
@@ -82,10 +93,14 @@ const getters = {
 };
 const modules = {
   address,
-//   contact,
   name,
   other,
-  education
+  education,
+  experience,
+  skill,
+  activity,
+  sport,
+  certificate
 };
 
 export const { mapFields: mapAddressFields } = createHelpers({
@@ -102,8 +117,29 @@ export const { mapFields: mapOtherFields } = createHelpers({
 });
 export const { mapMultiRowFields: mapEducationFields } = createHelpers({
   getterType: `profile/education/getField`,
-  mutationType: `profile/education/updateField`,
+  mutationType: `profile/education/updateField`, 
 });
+export const { mapMultiRowFields: mapExperienceFields } = createHelpers({
+  getterType: `profile/experience/getField`,
+  mutationType: `profile/experience/updateField`, 
+});
+export const { mapMultiRowFields: mapSkillFields } = createHelpers({
+  getterType: `profile/skill/getField`,
+  mutationType: `profile/skill/updateField`, 
+});
+export const { mapMultiRowFields: mapActivityFields } = createHelpers({
+  getterType: `profile/activity/getField`,
+  mutationType: `profile/activity/updateField`, 
+});
+export const { mapMultiRowFields: mapSportFields } = createHelpers({
+  getterType: `profile/sport/getField`,
+  mutationType: `profile/sport/updateField`, 
+});
+export const { mapMultiRowFields: mapCertificateFields } = createHelpers({
+  getterType: `profile/certificate/getField`,
+  mutationType: `profile/certificate/updateField`, 
+});
+
 
 
 export const profile = {

@@ -58,8 +58,7 @@
                             </v-row>
                             <v-row class="flex justify-center pa-4">
 
-                                <v-btn @click="submit" color="deep-purple-accent-2" size="large">Add
-                                    Data</v-btn>
+                                <v-btn @click="submit" color="deep-purple-accent-2" size="large">Submit</v-btn>
                             </v-row>
 
                         </v-sheet>

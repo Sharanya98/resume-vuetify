@@ -14,12 +14,12 @@
 
                                         <v-col cols="6" md="6">
                                             <v-label class="label pb-2 font-weight-bold">Programming Language</v-label>
-                                            <v-combobox v-model="skill.programming_lanuage" :items="itemslang" multiple
-                                                chips variant="outlined" v-on:keyup="addlanguages"></v-combobox>
+                                            <v-combobox v-model="programming_lanuage" :items="itemslang" multiple chips
+                                                variant="outlined" v-on:keyup="addlanguages"></v-combobox>
                                         </v-col>
                                         <v-col cols="6" md="6">
                                             <v-label class="label pb-2 font-weight-bold">Health status</v-label>
-                                            <v-radio-group v-model="skill.health_status" inline>
+                                            <v-radio-group v-model="health_status" inline>
                                                 <v-radio label="Disabled" value="Disabled"></v-radio>
                                                 <v-radio label="Non-Disabled" value="Non-Disabled"></v-radio>
                                             </v-radio-group>
@@ -32,13 +32,20 @@
                                     <v-row class="mb-n10 pr-24">
                                         <v-col cols="6" md="4">
                                             <v-label class="label pb-2 font-weight-bold">Skills/Hobbies</v-label>
-                                            <v-combobox v-model="skill.special_skills_and_hobbies.skillName"
-                                                :items="skillitems" chips variant="outlined"></v-combobox>
+                                            <v-combobox v-model="special_skills_and_hobbies.skillName" :items="skillitems"
+                                                clearable chips variant="outlined"></v-combobox>
                                         </v-col>
                                         <v-col cols="4" md="4">
                                             <v-label class="label pb-2 font-weight-bold">Years</v-label>
-                                            <v-text-field v-model="skill.special_skills_and_hobbies.totalYear"
-                                                variant="outlined" clearable label="Ex. 1,5" required></v-text-field>
+                                            <v-text-field v-model="special_skills_and_hobbies.totalYear" variant="outlined"
+                                                clearable label="Ex. 1,5" required></v-text-field>
+                                        </v-col>
+                                        <v-col cols="4" md="4">
+                                            <v-label class="label pb-2 font-weight-bold">Add More</v-label>
+
+                                            <v-col cols="auto">
+                                                <v-btn @click="addSkill" icon="mdi-plus" size="small"></v-btn>
+                                            </v-col>
                                         </v-col>
 
 
@@ -47,28 +54,39 @@
                                     <v-row class="mb-n10 pr-24">
                                         <v-col cols="6" md="4">
                                             <v-label class="label pb-2 font-weight-bold">Extra Curricular</v-label>
-                                            <v-combobox class="" v-model="skill.extra_curricular_activities.activityName"
-                                                :items="skillitems" chips variant="outlined"></v-combobox>
+                                            <v-combobox class="" v-model="extra_curricular_activities.activityName"
+                                            clearable :items="skillitems" chips variant="outlined"></v-combobox>
                                         </v-col>
                                         <v-col cols="4" md="4">
                                             <v-label class="label pb-2 font-weight-bold">Years</v-label>
-                                            <v-text-field v-model="skill.extra_curricular_activities.totalYear"
-                                                variant="outlined" clearable label="Ex. 1,5" required></v-text-field>
+                                            <v-text-field v-model="extra_curricular_activities.totalYear" variant="outlined"
+                                                clearable label="Ex. 1" required></v-text-field>
                                         </v-col>
+                                        <v-col cols="4" md="4">
+                                            <v-label class="label pb-2 font-weight-bold">Add More</v-label>
 
-
-
+                                            <v-col cols="auto">
+                                                <v-btn @click="addActivity" icon="mdi-plus" size="small"></v-btn>
+                                            </v-col>
+                                        </v-col>
                                     </v-row>
                                     <v-row class="mb-n10 pr-24">
                                         <v-col cols="6" md="4">
                                             <v-label class="label pb-2 font-weight-bold">Sports</v-label>
-                                            <v-combobox class="" v-model="skill.sports.sportsName" :items="skillitems" chips
-                                                variant="outlined"></v-combobox>
+                                            <v-combobox class="" v-model="sports.sportName" :items="sportsitems" chips
+                                            clearable variant="outlined"></v-combobox>
                                         </v-col>
                                         <v-col cols="4" md="4">
                                             <v-label class="label pb-2 font-weight-bold">Years</v-label>
-                                            <v-text-field v-model="skill.sports.totalYear" variant="outlined" clearable
+                                            <v-text-field v-model="sports.totalYear" variant="outlined" clearable
                                                 label="Ex. 1,5" required></v-text-field>
+                                        </v-col>
+                                        <v-col cols="4" md="4">
+                                            <v-label class="label pb-2 font-weight-bold">Add More</v-label>
+
+                                            <v-col cols="auto">
+                                                <v-btn @click="addSport" icon="mdi-plus" size="small"></v-btn>
+                                            </v-col>
                                         </v-col>
 
 
@@ -77,37 +95,36 @@
                                     <v-row class="mb-n10">
                                         <v-col cols="4" md="4">
                                             <v-label class="label pb-2 font-weight-bold">Certification</v-label>
-                                            <v-combobox v-model="skill.licenses_certification.licenseName"
-                                                :items="licenceitems" chips variant="outlined"></v-combobox>
+                                            <v-combobox v-model="licenses_certification.licenseName"
+                                            clearable :items="licenceitems" chips variant="outlined"></v-combobox>
                                         </v-col>
-                                        <v-col cols="2" md="2">
+                                        <v-col cols="3" md="3">
                                             <v-label class="label pb-2 font-weight-bold">Start Year</v-label>
-                                            <v-text-field v-model="skill.licenses_certification.licenseDateYear"
+                                            <v-text-field v-model="licenses_certification.licenseDateYear"
                                                 variant="outlined" clearable label="YYYY" required></v-text-field>
                                         </v-col>
                                         <v-col cols="2" md="2">
                                             <v-label class="label pb-2 font-weight-bold">Start Month</v-label>
-                                            <v-text-field v-model="skill.licenses_certification.licenseDateMonth"
+                                            <v-text-field v-model="licenses_certification.licenseDateMonth"
                                                 variant="outlined" clearable label="MM" required></v-text-field>
                                         </v-col>
+                                        <v-col cols="2" md="2">
+                                            <v-label class="label pb-2 font-weight-bold">Add More</v-label>
 
-
-
-                                    </v-row>
-                                    <v-row class="">
-                                        <v-col cols="1" md="1">
-
-                                            <v-btn @click="addSkill">add</v-btn>
-
-
+                                            <v-col cols="auto">
+                                                <v-btn @click="addCertificate" icon="mdi-plus" size="small"></v-btn>
+                                            </v-col>
                                         </v-col>
 
+
+
                                     </v-row>
+
 
                                     <v-row class="flex justify-start pa-4">
 
-                                        <v-btn @click="addPersonalData" color="deep-purple-accent-2" size="large">Add
-                                            Data</v-btn>
+                                        <!-- <v-btn @click="submit" color="deep-purple-accent-2" size="large">Add
+                                            Data</v-btn> -->
                                     </v-row>
 
 
@@ -118,81 +135,93 @@
                         </v-sheet>
 
                     </v-col>
+
                     <v-col cols="4" sm="4">
-                        <div v-if="activate">
-                            <v-container>
-                                <v-card class="mx-auto mb-4" max-width="344" v-for="(item, index) in addskill" :key="index">
 
-                                    <v-card-item>
-                                        <v-card-actions>
-                                            <v-spacer></v-spacer>
-
+                        <v-container v-show="showSkill">
+                            <v-card class="mx-auto mb-4" max-width="344">
+                                <div class="text-center text-uppercase text-h6">skills/hobbies</div>
+                                <v-card-item>
+                                    <v-row justify="space-between" class="mx-2"
+                                        v-for="(item, index) in special_skills_and_hobbies" :key="index">
+                                        <v-col cols="12" sm="4">
+                                            {{ item.skillName }}
+                                        </v-col>
+                                        <v-col cols="12" sm="4">
+                                            {{ item.totalYear }} years
+                                        </v-col>
+                                        <v-col cols="12" sm="4">
                                             <v-btn size="medium" color="surface-variant" variant="text" icon="mdi-delete"
                                                 @click="deleteSkill"></v-btn>
+                                        </v-col>
+                                    </v-row>
+                                </v-card-item>
+                            </v-card>
+                        </v-container>
+                        <v-container v-show="showActivity">
+                            <v-card class="mx-auto mb-4" max-width="344">
+                                <div class="text-center text-uppercase text-h6">Extra Curricular</div>
+                                <v-card-item>
+                                    <v-row justify="space-between" class="mx-2"
+                                        v-for="(item, index) in extra_curricular_activities" :key="index">
+                                        <v-col cols="12" sm="4">
+                                            {{ item.activityName }}
+                                        </v-col>
+                                        <v-col cols="12" sm="4">
+                                            {{ item.totalYear }} years
+                                        </v-col>
+                                        <v-col cols="12" sm="4">
+                                            <v-btn size="medium" color="surface-variant" variant="text" icon="mdi-delete"
+                                                @click="deleteActivity"></v-btn>
+                                        </v-col>
+                                    </v-row>
+                                </v-card-item>
+                            </v-card>
+                        </v-container>
+                        <v-container v-show="showSport">
+                            <v-card class="mx-auto mb-4" max-width="344">
+                                <div class="text-center text-uppercase text-h6">Sports</div>
+                                <v-card-item>
+                                    <v-row justify="space-between" class="mx-2"
+                                        v-for="(item, index) in sports" :key="index">
+                                        <v-col cols="12" sm="4">
+                                            {{ item.sportName }}
+                                        </v-col>
+                                        <v-col cols="12" sm="4">
+                                            {{ item.totalYear }} years
+                                        </v-col>
+                                        <v-col cols="12" sm="4">
+                                            <v-btn size="medium" color="surface-variant" variant="text" icon="mdi-delete"
+                                                @click="deleteSport"></v-btn>
+                                        </v-col>
+                                    </v-row>
+                                </v-card-item>
+                            </v-card>
+                        </v-container>
+                        <v-container v-show="showCertificate">
+                            <v-card class="mx-auto mb-4" max-width="344">
+                                <div class="text-center text-uppercase text-h6">Certificate</div>
+                                <v-card-item>
+                                    <v-row justify="space-between" class="mx-2"
+                                        v-for="(item, index) in licenses_certification" :key="index">
+                                        <v-col cols="12" sm="3">
+                                            {{ item.licenseName }}
+                                        </v-col>
+                                        <v-col cols="12" sm="3">
+                                            {{ item.licenseDateYear }} 
+                                        </v-col>
+                                        <v-col cols="12" sm="3">
+                                            {{ item.licenseDateMonth }}
+                                        </v-col>
+                                        <v-col cols="12" sm="3">
+                                            <v-btn size="medium" color="surface-variant" variant="text" icon="mdi-delete"
+                                                @click="deleteCertificate"></v-btn>
+                                        </v-col>
+                                    </v-row>
+                                </v-card-item>
+                            </v-card>
+                        </v-container>
 
-
-                                        </v-card-actions>
-                                        <v-list>
-
-                                            <v-list-item>
-                                                <template v-slot:prepend>
-                                                    <v-list-item-title class="mr-2">Programming
-                                                        Language:</v-list-item-title>
-                                                    <v-list-item-subtitle>{{ item.programming_lanuage
-                                                    }}</v-list-item-subtitle>
-                                                </template>
-                                            </v-list-item>
-                                            <v-list-item>
-                                                <template v-slot:prepend>
-                                                    <v-list-item-title class="mr-2">Health Status</v-list-item-title>
-                                                    <v-list-item-subtitle>{{ item.health_status }}</v-list-item-subtitle>
-                                                </template>
-                                            </v-list-item>
-                                            <v-list-item>
-                                                <template v-slot:prepend>
-                                                    <v-list-item-title class="mr-2">skills/hobbies-Year</v-list-item-title>
-                                                    <v-list-item-subtitle>{{ item.special_skills_and_hobbies.skillName }}-{{
-                                                        item.special_skills_and_hobbies.totalYear }}</v-list-item-subtitle>
-                                                </template>
-                                            </v-list-item>
-                                            <v-list-item>
-                                                <template v-slot:prepend>
-                                                    <v-list-item-title class="mr-2">extra curricular</v-list-item-title>
-                                                    <v-list-item-subtitle>{{ item.extra_curricular_activities.activityName
-                                                    }}-{{ item.extra_curricular_activities.totalYear
-}}</v-list-item-subtitle>
-                                                </template>
-                                            </v-list-item>
-                                            <v-list-item>
-                                                <template v-slot:prepend>
-                                                    <v-list-item-title class="mr-2">Certifications</v-list-item-title>
-                                                    <v-list-item-subtitle>{{ item.licenses_certification.licenseName }}-{{
-                                                        item.licenses_certification.licenseDateYear }}-{{
-        item.licenses_certification.licenseDateMonth
-    }}</v-list-item-subtitle>
-                                                </template>
-                                            </v-list-item>
-                                            <v-list-item>
-                                                <template v-slot:prepend>
-                                                    <v-list-item-title class="mr-2">sports</v-list-item-title>
-                                                    <v-list-item-subtitle>{{ item.sports.sportName }}--{{
-                                                        item.sports.totalYear }}</v-list-item-subtitle>
-                                                </template>
-                                            </v-list-item>
-
-
-
-
-                                        </v-list>
-
-                                    </v-card-item>
-
-                                </v-card>
-
-
-
-                            </v-container>
-                        </div>
 
                     </v-col>
 
@@ -205,6 +234,27 @@
 </template>
 
 <script>
+import { createNamespacedHelpers } from 'vuex';
+import { SUBMIT } from '../store/action-types';
+
+import store from '../store';
+
+import {
+    profile,
+    mapSkillFields,
+    mapOtherFields,
+    mapActivityFields,
+    mapSportFields,
+    mapCertificateFields
+
+} from '../store/modules/build';
+
+if (!store.state.profile) store.registerModule(`profile`, profile);
+
+const {
+    mapActions: mapProfileActions,
+    mapState: mapProfileState,
+} = createNamespacedHelpers(`profile`);
 
 export default {
     data: () => ({
@@ -216,118 +266,135 @@ export default {
         skillitems: [
 
         ],
+        sportsitems: [
+
+        ],
         licenceitems: [
 
         ],
+        
         valid: false,
-
         activate: false,
-        skill: {
-            programming_lanuage: ['Java'],
-
-
-            health_status: '',
-
-            licenses_certification: [{
-                licenseName: "",
-                licenseDateYear: "",
-                licenseDateMonth: "",
-            }],
-            special_skills_and_hobbies: [
-                {
-                    skillName: "",
-                    totalYear: "",
-                },
-            ],
-            extra_curricular_activities: [
-                {
-                    activityName: "",
-                    totalYear: "",
-                },
-            ],
-            sports: [
-                {
-                    sportName: "",
-                    totalYear: "",
-                },
-            ],
-        },
-        addskill: []
+        special_skills_and_hobbies: [
+            {
+                skillName: "",
+                totalYear: "",
+            },
+        ],
+        extra_curricular_activities: [
+            {
+                activityName: "",
+                totalYear: "",
+            },
+        ],
+        licenses_certification: [{
+            licenseName: "",
+            licenseDateYear: "",
+            licenseDateMonth: "",
+        }],
+        sports: [
+            {
+                sportName: "",
+                totalYear: "",
+            },
+        ],
+        showSkill: false,
+        showActivity: false,
+        showSport :false,
+        showCertificate :false
+        
+      
 
 
     }),
     computed: {
+
+        ...mapOtherFields([`rows[0].programming_lanuage`, `rows[0].health_status`]),
+        ...mapProfileState([`error`, `success`]),
+        ...mapSkillFields({ skill: `rows` }),
+        ...mapActivityFields({ activity: `rows` }),
+        ...mapSportFields({ sport: `rows` }),
+        ...mapCertificateFields({ certificate: `rows` }),
+
         SkillData() {
             return {
                 value: {
-                    programming_lanuage: this.skill.programming_lanuage,
-                    health_status: this.health_status,
-                    licenses_certification: {
-                        licenseName: this.skill.licenses_certification.licenseName,
-                        licenseDateYear: this.skill.licenses_certification.licenseDateMonth,
-                        licenseDateMonth: this.skill.licenses_certification.licenseDateMonth,
-                    },
-                    special_skills_and_hobbies:
-                    {
-                        skillName: this.skill.special_skills_and_hobbies.skillName,
-                        totalYear: this.skill.special_skills_and_hobbies.totalYear,
-                    },
-
-                    extra_curricular_activities:
-                    {
-                        activityName: this.skill.extra_curricular_activities.activityName,
-                        totalYear: this.skill.extra_curricular_activities.totalYear,
-                    },
-
-                    sports:
-
-                    {
-                        sportName: this.skill.sports.sportName,
-                        totalYear: this.skill.sports.totalYear
-                    },
-
-
-
+                    skillName: this.special_skills_and_hobbies.skillName,
+                    totalYear: this.special_skills_and_hobbies.totalYear
                 }
-
-
-
             }
         },
+        ActivityData() {
+            return {
+                value: {
+                    activityName: this.extra_curricular_activities.activityName,
+                    totalYear: this.extra_curricular_activities.totalYear
+                }
+            }
+        },
+        SportData() {
+            return {
+                value: {
+                    sportName: this.sports.sportName,
+                    totalYear: this.sports.totalYear
+                }
+            }
+        },
+        CertificateData() {
+            return {
+                value: {
+                    licenseName: this.licenses_certification.licenseName,
+                    licenseDateYear: this.licenses_certification.licenseDateYear,
+                    licenseDateMonth:this.licenses_certification.licenseDateMonth
+                }
+            }
+        },
+
     },
     methods: {
+        ...mapProfileActions({
+            submit: SUBMIT,
+        }),
         addSkill() {
-            this.activate = true
-            this.addskill.push({
+            this.showSkill = true
+            this.special_skills_and_hobbies.push({
+                skillName: this.SkillData.value.skillName,
+                totalYear: this.SkillData.value.totalYear
 
-                programming_lanuage: this.SkillData.value.programming_lanuage,
-                health_status: this.SkillData.value.health_status,
-                licenses_certification: {
-                    licenseName: this.SkillData.value.licenses_certification.licenseName,
-                    licenseDateYear: this.SkillData.value.licenses_certification.licenseDateMonth,
-                    licenseDateMonth: this.SkillData.value.licenses_certification.licenseDateMonth,
-                },
-                special_skills_and_hobbies:
-                {
-                    skillName: this.SkillData.value.special_skills_and_hobbies.skillName,
-                    totalYear: this.SkillData.value.special_skills_and_hobbies.totalYear,
-                },
-
-                extra_curricular_activities:
-                {
-                    activityName: this.SkillData.value.extra_curricular_activities.activityName,
-                    totalYear: this.SkillData.value.extra_curricular_activities.totalYear,
-                },
-
-                sports:
-
-                {
-                    sportName: this.SkillData.value.sports.sportName,
-                    totalYear: this.SkillData.value.sports.totalYear
-                },
             })
-            //console.log("experience", this.skill)
-            console.log("experience", this.WorkData)
+            console.log("skillfield", this.special_skills_and_hobbies)
+            this.$store.commit('profile/skill/addskill', this.special_skills_and_hobbies)
+        },
+        addActivity() {
+            this.showActivity = true
+            this.extra_curricular_activities.push({
+                activityName: this.ActivityData.value.activityName,
+                totalYear: this.ActivityData.value.totalYear
+
+            })
+            console.log("activity field", this.extra_curricular_activities)
+            this.$store.commit('profile/activity/addactivity', this.extra_curricular_activities);
+        },
+        addSport() {
+            this.showSport = true
+            this.sports.push({
+                sportName: this.SportData.value.sportName,
+                totalYear: this.SportData.value.totalYear
+
+            })
+            console.log("sports field", this.sports)
+            this.$store.commit('profile/sport/addsport', this.sports);
+        },
+        addCertificate() {
+            this.showCertificate = true
+            this.licenses_certification.push({
+                licenseName: this.CertificateData.value.licenseName,
+                licenseDateYear: this.CertificateData.value.licenseDateYear,
+                licenseDateMonth: this.CertificateData.value.licenseDateMonth
+
+            })
+            console.log("certificate field", this.licenses_certification)
+            this.$store.commit('profile/certificate/addcertificate', this.licenses_certification);
         },
         addlanguages() {
 
@@ -336,13 +403,22 @@ export default {
         },
 
         deleteSkill(index) {
-            this.addskill.splice(index, 1)
+            this.special_skills_and_hobbies.splice(index, 1)
             console.log("index", index)
         },
-        addPersonalData() {
-            this.$store.dispatch('setPersonalData', this.addskill)
-            console.log("skill  added", this.addskill)
-        }
+        deleteActivity(index) {
+            this.extra_curricular_activities.splice(index, 1)
+            console.log("index", index)
+        },
+        deleteSport(index) {
+            this.sports.splice(index, 1)
+            console.log("index", index)
+        },
+        deleteCertificate(index) {
+            this.licenses_certification.splice(index, 1)
+            console.log("index", index)
+        },
+
 
     }
 }

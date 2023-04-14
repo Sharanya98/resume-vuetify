@@ -47,15 +47,15 @@
                                     <v-row class="">
                                         <v-col cols="1" md="1">
 
-                                            <v-btn @click="addWork">add</v-btn>
+                                            <v-btn @click="addMore">add</v-btn>
 
                                         </v-col>
 
                                     </v-row>
                                     <v-row class="flex justify-start pa-4">
 
-                                        <v-btn @click="addPersonalData" color="deep-purple-accent-2" size="large">Add
-                                            Data</v-btn>
+                                        <!-- <v-btn @click="submit" color="deep-purple-accent-2" size="large">Add
+                                            Data</v-btn> -->
                                     </v-row>
 
 
@@ -129,8 +129,19 @@
 </template>
 
 <script>
-import WorkList from './WorkList.vue'
+
 import { mapState, mapActions } from 'vuex';
+import { createNamespacedHelpers } from 'vuex';
+import { SUBMIT } from '../store/action-types';
+import store from '../store';
+import { profile, mapExperienceFields} from '../store/modules/build'
+
+if (!store.state.profile) store.registerModule(`profile`, profile);
+
+const {
+    mapActions: mapProfileActions,
+    mapState: mapProfileState,
+} = createNamespacedHelpers(`profile`);
 
 export default {
     data: () => ({
@@ -143,11 +154,10 @@ export default {
         }],
         activate: false
     }),
-    components: {
-        WorkList
-    },
     computed: {
-        ...mapState(['experience']),
+
+        ...mapProfileState([`error`, `success`]),
+        ...mapExperienceFields({experience : `rows`}),
         WorkData() {
             return {
                 value: {
@@ -161,7 +171,11 @@ export default {
     },
 
     methods: {
-        addWork() {
+
+        ...mapProfileActions({
+            submit: SUBMIT,
+        }),
+        addMore() {
             this.activate = true
             this.experience.push({
 
@@ -172,15 +186,13 @@ export default {
             })
             console.log("experience", this.experience)
             console.log("experience", this.WorkData)
+            this.$store.commit('profile/experience/addmore', this.experience)
         },
         deleteWork(index) {
             this.experience.splice(index, 1)
             console.log("index", index)
         },
-        addPersonalData() {
-            this.$store.dispatch('setPersonalData', this.experience)
-            console.log("experience  added", this.experience)
-        }
+       
        
     }
 }

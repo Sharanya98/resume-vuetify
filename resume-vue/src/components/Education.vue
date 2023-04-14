@@ -1,12 +1,12 @@
 <template>
     <v-app id="inspire">
         <v-main class="bg-grey-lighten-3">
-            <!-- <p v-if="success" class="success">
-                SUCCESS!
-            </p>
-            <p v-if="error" class="error">
-                ERROR: {{ error }}
-            </p> -->
+              <!-- <p v-if="success" class="success">
+                            SUCCESS!
+                        </p>
+                        <p v-if="error" class="error">
+                            ERROR: {{ error }}
+                        </p>  -->
             <v-container>
                 <v-row>
                     <v-col cols="8" sm="8">
@@ -50,7 +50,7 @@
                                     <v-row class="">
                                         <v-col cols="1" md="1">
 
-                                            <v-btn @click="addEducation">add</v-btn>
+                                            <v-btn @click="addMore">add</v-btn>
 
 
                                         </v-col>
@@ -58,8 +58,8 @@
                                     </v-row>
                                     <v-row class="flex justify-start pa-4">
 
-                                        <v-btn @click="submit" color="deep-purple-accent-2" size="large">Add
-                                            Data</v-btn>
+                                        <!-- <v-btn @click="submit" color="deep-purple-accent-2" size="large">Add
+                                            Data</v-btn> -->
                                     </v-row>
 
 
@@ -139,12 +139,13 @@
 </template>
 
 <script>
-import EducationList from './EducationList.vue'
-import { mapState, mapActions } from 'vuex';
+
+import { mapState, mapActions, mapMutations } from 'vuex';
 import { createNamespacedHelpers } from 'vuex';
 import { SUBMIT } from '../store/action-types';
 import store from '../store';
 import { profile, mapEducationFields} from '../store/modules/build'
+import { isProxy, toRaw } from 'vue';
 
 
 
@@ -182,9 +183,6 @@ export default {
 
     }),
 
-    components: {
-        EducationList
-    },
     computed: {
 
         ...mapProfileState([`error`, `success`]),
@@ -213,24 +211,20 @@ export default {
         ...mapProfileActions({
             submit: SUBMIT,
         }),
-       
-
-  
-        
-        
-        
-        addEducation() {
+         
+       addMore() {
             this.activate = true
             
             this.education.push({
 
-                schoolName: this.EducationData.value.schoolName,
+                schoolName:this.EducationData.value.schoolName,
                 degree: this.EducationData.value.degree,
                 startYear: this.EducationData.value.startYear,
                 startMonth: this.EducationData.value.startMonth
             })
             console.log("educationfield", this.education)
             console.log("educationdata", this.EducationData)
+            this.$store.commit('profile/education/addmore', this.education)
             
            
             
@@ -239,11 +233,7 @@ export default {
             this.education.splice(index, 1)
             console.log("index", index)
         },
-        addPersonalData() {
-            this.$store.dispatch('addmore', this.education)
-            console.log("education  added", this.educationField)
-        }
-
+       
 
 
 
