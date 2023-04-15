@@ -32,13 +32,13 @@
 
                                         <v-col cols="6" md="6">
                                             <v-label class="text-uppercase pb-2 font-weight-bold">First Name(Kana)</v-label>
-                                            <v-text-field v-model="first_name_Kana" :rules="nameRules" variant="outlined"
+                                            <v-text-field v-model="first_name_kana" :rules="nameRules" variant="outlined"
                                                 clearable label="First name" required></v-text-field>
                                         </v-col>
 
                                         <v-col cols="6" md="6">
                                             <v-label class="text-uppercase pb-2 font-weight-bold">Last Name(Kana)</v-label>
-                                            <v-text-field v-model="last_name_Kana" :rules="nameRules" variant="outlined"
+                                            <v-text-field v-model="last_name_kana" :rules="nameRules" variant="outlined"
                                                 clearable label="Last name" required></v-text-field>
                                         </v-col>
 
@@ -50,15 +50,15 @@
                                         <v-col cols="6" md="4">
                                             <v-label class="text-uppercase pb-2 font-weight-bold">Gender</v-label>
                                             <v-radio-group v-model="sex" inline>
-                                                <v-radio label="Male" value="Male"></v-radio>
-                                                <v-radio label="Female" value="Female"></v-radio>
+                                                <v-radio label="Male" value=1></v-radio>
+                                                <v-radio label="Female" value=0></v-radio>
                                             </v-radio-group>
                                         </v-col>
                                     </v-row>
                                     <v-row class="mb-n10">
                                         <v-col cols="6" md="6">
                                             <v-label class="text-uppercase pb-2 font-weight-bold">BirthDate</v-label>
-                                            <v-text-field v-model="birthday" variant="outlined" clearable label="YYYY/MM/DD"
+                                            <v-text-field v-model="birthday" variant="outlined" clearable label="YYYY-MM-DD"
                                                 required></v-text-field>
                                         </v-col>
                                         <v-col cols="6" md="6">
@@ -185,7 +185,7 @@ export default {
 
 
         ...mapProfileState([`error`, `success`]),
-        ...mapNameFields([`rows[0].first_name`, `rows[0].last_name`, `rows[0].first_name_Kana`, `rows[0].last_name_Kana`]),
+        ...mapNameFields([`rows[0].first_name`, `rows[0].last_name`, `rows[0].first_name_kana`, `rows[0].last_name_kana`]),
         ...mapAddressFields([`rows[0].full_address`, `rows[0].full_address_kana`, `rows[0].postal_code`]),
         ...mapOtherFields([`rows[0].sex`, `rows[0].birthday`, `rows[0].nationality`, `rows[0].email`, `rows[0].phone`, `rows[0].bio`, `rows[0].your_motive`, `rows[0].self_PR`, `rows[0].health_status`])
 

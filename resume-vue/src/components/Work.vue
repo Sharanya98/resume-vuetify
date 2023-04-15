@@ -72,7 +72,7 @@
 
                                     <v-card-item>
                                         <v-card-actions>
-                                            <v-spacer></v-spacer>
+                                            <v-spacer class="text-uppercase text-center text-h6 font-weight-black" >Experience Details</v-spacer>
 
                                             <v-btn size="medium" color="surface-variant" variant="text" icon="mdi-delete"
                                                 @click="deleteWork"></v-btn>
@@ -146,12 +146,7 @@ const {
 export default {
     data: () => ({
         valid: false,
-        experience: [{
-            companyName: '',
-            position: '',
-            startYear: '',
-            startMonth: ''
-        }],
+        experience: [],
         activate: false
     }),
     computed: {

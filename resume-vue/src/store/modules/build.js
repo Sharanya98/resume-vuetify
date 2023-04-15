@@ -8,7 +8,7 @@ import { createProfile } from "../../models/Profile";
 import { createRequest } from "../../models/Request";
 import { SUBMIT } from "../action-types";
 import { ERROR, SUCCESS } from "../mutation-types";
-import { getField, updateField } from 'vuex-map-fields';
+import { getField, updateField } from "vuex-map-fields";
 
 import address from "./form-fields/address";
 
@@ -45,22 +45,22 @@ const actions = {
         your_motive: state.other.rows[0].your_motive,
         self_PR: state.other.rows[0].self_PR,
         health_status: state.other.rows[0].health_status,
-        programming_lanuage : state.other.rows[0].programming_lanuage,
-        education : state.education.rows[1],
-        experience : state.experience.rows[1],
-        skill : state.skill.rows[1],
-        activity : state.activity.rows[1],
-        sports : state.sport.rows[1],
-        certificate : state.certificate.rows[1],
+        programming_lanuage: state.other.rows[0].programming_lanuage,
+        education: state.education.rows[1],
+        experience: state.experience.rows[1],
+        skill: state.skill.rows[1],
+        activity: state.activity.rows[1],
+        sports: state.sport.rows[1],
+        certificate: state.certificate.rows[1],
       });
       const requestData = createRequest(profileData);
-
       await api(requestData);
 
       commit(SUCCESS);
     } catch (error) {
       commit(ERROR, error.message);
     }
+    // console.log(data)
   },
 };
 
@@ -77,20 +77,17 @@ const mutations = {
     // eslint-disable-next-line no-param-reassign
     state.success = true;
   },
- 
-  
+  Loader(state,payload){
+    state.loader = payload
+  }
 };
 
 const state = () => ({
   error: false,
   success: false,
- 
-  
- 
+  loader : false
 });
-const getters = {
- 
-};
+const getters = {};
 const modules = {
   address,
   name,
@@ -100,7 +97,7 @@ const modules = {
   skill,
   activity,
   sport,
-  certificate
+  certificate,
 };
 
 export const { mapFields: mapAddressFields } = createHelpers({
@@ -112,35 +109,33 @@ export const { mapFields: mapNameFields } = createHelpers({
   mutationType: `profile/name/updateField`,
 });
 export const { mapFields: mapOtherFields } = createHelpers({
-  getterType:  `profile/other/getField`,
+  getterType: `profile/other/getField`,
   mutationType: `profile/other/updateField`,
 });
 export const { mapMultiRowFields: mapEducationFields } = createHelpers({
   getterType: `profile/education/getField`,
-  mutationType: `profile/education/updateField`, 
+  mutationType: `profile/education/updateField`,
 });
 export const { mapMultiRowFields: mapExperienceFields } = createHelpers({
   getterType: `profile/experience/getField`,
-  mutationType: `profile/experience/updateField`, 
+  mutationType: `profile/experience/updateField`,
 });
 export const { mapMultiRowFields: mapSkillFields } = createHelpers({
   getterType: `profile/skill/getField`,
-  mutationType: `profile/skill/updateField`, 
+  mutationType: `profile/skill/updateField`,
 });
 export const { mapMultiRowFields: mapActivityFields } = createHelpers({
   getterType: `profile/activity/getField`,
-  mutationType: `profile/activity/updateField`, 
+  mutationType: `profile/activity/updateField`,
 });
 export const { mapMultiRowFields: mapSportFields } = createHelpers({
   getterType: `profile/sport/getField`,
-  mutationType: `profile/sport/updateField`, 
+  mutationType: `profile/sport/updateField`,
 });
 export const { mapMultiRowFields: mapCertificateFields } = createHelpers({
   getterType: `profile/certificate/getField`,
-  mutationType: `profile/certificate/updateField`, 
+  mutationType: `profile/certificate/updateField`,
 });
-
-
 
 export const profile = {
   namespaced: true,
@@ -148,5 +143,5 @@ export const profile = {
   mutations,
   state,
   modules,
-  getters
+  getters,
 };

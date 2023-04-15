@@ -1,6 +1,7 @@
 export class Request {
     constructor(data = {}) {
       this.data = data;
+      
     }
   }
   

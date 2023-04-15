@@ -78,7 +78,7 @@
 
                                     <v-card-item>
                                         <v-card-actions>
-                                            <v-spacer></v-spacer>
+                                            <v-spacer class="text-uppercase text-center text-h6 font-weight-black" >Education Details</v-spacer>
 
                                             <v-btn size="medium" color="surface-variant" variant="text" icon="mdi-delete"
                                                 @click="deleteEducation"></v-btn>
@@ -140,12 +140,10 @@
 
 <script>
 
-import { mapState, mapActions, mapMutations } from 'vuex';
 import { createNamespacedHelpers } from 'vuex';
 import { SUBMIT } from '../store/action-types';
 import store from '../store';
 import { profile, mapEducationFields} from '../store/modules/build'
-import { isProxy, toRaw } from 'vue';
 
 
 
@@ -171,12 +169,7 @@ export default {
             'Graduate(Phd)', 'Graduate(Ms)', 'Vocational School', 'University'
         ],
 
-        education: [{
-            schoolName: '',
-            degree: '',
-            startYear: '',
-            startMonth: ''
-        }],
+        education: [],
         activate: false
 
 

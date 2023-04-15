@@ -55,7 +55,7 @@
                                         <v-col cols="6" md="4">
                                             <v-label class="label pb-2 font-weight-bold">Extra Curricular</v-label>
                                             <v-combobox class="" v-model="extra_curricular_activities.activityName"
-                                            clearable :items="skillitems" chips variant="outlined"></v-combobox>
+                                                clearable :items="skillitems" chips variant="outlined"></v-combobox>
                                         </v-col>
                                         <v-col cols="4" md="4">
                                             <v-label class="label pb-2 font-weight-bold">Years</v-label>
@@ -74,7 +74,7 @@
                                         <v-col cols="6" md="4">
                                             <v-label class="label pb-2 font-weight-bold">Sports</v-label>
                                             <v-combobox class="" v-model="sports.sportName" :items="sportsitems" chips
-                                            clearable variant="outlined"></v-combobox>
+                                                clearable variant="outlined"></v-combobox>
                                         </v-col>
                                         <v-col cols="4" md="4">
                                             <v-label class="label pb-2 font-weight-bold">Years</v-label>
@@ -95,8 +95,8 @@
                                     <v-row class="mb-n10">
                                         <v-col cols="4" md="4">
                                             <v-label class="label pb-2 font-weight-bold">Certification</v-label>
-                                            <v-combobox v-model="licenses_certification.licenseName"
-                                            clearable :items="licenceitems" chips variant="outlined"></v-combobox>
+                                            <v-combobox v-model="licenses_certification.licenseName" clearable
+                                                :items="licenceitems" chips variant="outlined"></v-combobox>
                                         </v-col>
                                         <v-col cols="3" md="3">
                                             <v-label class="label pb-2 font-weight-bold">Start Year</v-label>
@@ -182,8 +182,8 @@
                             <v-card class="mx-auto mb-4" max-width="344">
                                 <div class="text-center text-uppercase text-h6">Sports</div>
                                 <v-card-item>
-                                    <v-row justify="space-between" class="mx-2"
-                                        v-for="(item, index) in sports" :key="index">
+                                    <v-row justify="space-between" class="mx-2" v-for="(item, index) in sports"
+                                        :key="index">
                                         <v-col cols="12" sm="4">
                                             {{ item.sportName }}
                                         </v-col>
@@ -208,7 +208,7 @@
                                             {{ item.licenseName }}
                                         </v-col>
                                         <v-col cols="12" sm="3">
-                                            {{ item.licenseDateYear }} 
+                                            {{ item.licenseDateYear }}
                                         </v-col>
                                         <v-col cols="12" sm="3">
                                             {{ item.licenseDateMonth }}
@@ -272,38 +272,25 @@ export default {
         licenceitems: [
 
         ],
-        
+
         valid: false,
         activate: false,
         special_skills_and_hobbies: [
-            {
-                skillName: "",
-                totalYear: "",
-            },
+
         ],
         extra_curricular_activities: [
-            {
-                activityName: "",
-                totalYear: "",
-            },
+
         ],
-        licenses_certification: [{
-            licenseName: "",
-            licenseDateYear: "",
-            licenseDateMonth: "",
-        }],
+        licenses_certification: [],
         sports: [
-            {
-                sportName: "",
-                totalYear: "",
-            },
+
         ],
         showSkill: false,
         showActivity: false,
-        showSport :false,
-        showCertificate :false
-        
-      
+        showSport: false,
+        showCertificate: false
+
+
 
 
     }),
@@ -345,7 +332,7 @@ export default {
                 value: {
                     licenseName: this.licenses_certification.licenseName,
                     licenseDateYear: this.licenses_certification.licenseDateYear,
-                    licenseDateMonth:this.licenses_certification.licenseDateMonth
+                    licenseDateMonth: this.licenses_certification.licenseDateMonth
                 }
             }
         },

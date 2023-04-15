@@ -59,7 +59,9 @@
                             <v-row class="flex justify-center pa-4">
 
                                 <v-btn @click="submit" color="deep-purple-accent-2" size="large">Submit</v-btn>
+                                
                             </v-row>
+                            
 
                         </v-sheet>
                     </v-col>
@@ -83,9 +85,9 @@ import store from '../store';
 
 import {
     profile,
-   
+
     mapOtherFields,
-   
+
 } from '../store/modules/build';
 
 if (!store.state.profile) store.registerModule(`profile`, profile);
@@ -98,12 +100,12 @@ export default {
     data: () => ({
         
     }),
-    computed:{
-       
+    computed: {
+
         ...mapProfileState([`error`, `success`]),
-        ...mapOtherFields([`rows[0].bio`,`rows[0].your_motive`,`rows[0].self_PR`])
+        ...mapOtherFields([`rows[0].bio`, `rows[0].your_motive`, `rows[0].self_PR`])
     },
-    methods:{
+    methods: {
        
         ...mapProfileActions({
             submit: SUBMIT,

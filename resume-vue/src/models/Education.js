@@ -1,5 +1,5 @@
 export class Education {
-    constructor({ schoolName = ``,degree = ``,startYear = ``,startMonth = ``} = {}) {
+    constructor({ schoolName ,degree,startYear,startMonth } = {}) {
       this.schoolName = schoolName,
       this.degree = degree,
       this.startYear = startYear,
