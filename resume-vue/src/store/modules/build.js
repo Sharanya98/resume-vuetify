@@ -8,7 +8,7 @@ import { createProfile } from "../../models/Profile";
 import { createRequest } from "../../models/Request";
 import { SUBMIT } from "../action-types";
 import { ERROR, SUCCESS } from "../mutation-types";
-import { getField, updateField } from "vuex-map-fields";
+
 
 import address from "./form-fields/address";
 
